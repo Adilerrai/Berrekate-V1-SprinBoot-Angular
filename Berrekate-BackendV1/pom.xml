@@ -9,12 +9,14 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.berrekate</groupId>
-	<artifactId>V1</artifactId>
+	<artifactId>Berrekate</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>V1</name>
 	<description>Projet file rouge  avec simplon</description>
 	<properties>
 		<java.version>17</java.version>
+			<sonar.host.url>http://localhost:9000</sonar.host.url>
+			<sonar.login>your_sonarqube_token</sonar.login>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -37,6 +39,23 @@
 			<optional>true</optional>
 		</dependency>
 		<dependency>
+			<groupId>org.sonarsource.api.plugin</groupId>
+			<artifactId>sonar-plugin-api</artifactId>
+			<version>10.6.0.2114</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>net.eunjae.android.modelmapper</groupId>
+			<artifactId>ModelMapper</artifactId>
+			<version>1.0.6</version>
+		</dependency>
+		<dependency>
+			<groupId>org.modelmapper</groupId>
+			<artifactId>modelmapper</artifactId>
+			<version>2.3.8</version>
+		</dependency>
+
+		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
@@ -46,10 +65,28 @@
 			<artifactId>spring-restdocs-mockmvc</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-websocket</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-test</artifactId>
+			<scope>test</scope>
+		</dependency>
 	</dependencies>
 
 	<build>
 		<plugins>
+			<plugin>
+				<groupId>org.sonarsource.scanner.maven</groupId>
+				<artifactId>sonar-maven-plugin</artifactId>
+				<version>3.9.1.2184</version>
+			</plugin>
 			<plugin>
 				<groupId>org.asciidoctor</groupId>
 				<artifactId>asciidoctor-maven-plugin</artifactId>
@@ -89,5 +126,4 @@
 			</plugin>
 		</plugins>
 	</build>
-
 </project>
