@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface VilleRepository extends JpaRepository<Ville, Long> {
-    Ville getVilleByNom(String name);
-    boolean deleteByName(String name);
+    Ville getVilleByNomVille(String name);
+    boolean deleteByNomVille(String name);
 
 }

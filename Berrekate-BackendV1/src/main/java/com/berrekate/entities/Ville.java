@@ -15,23 +15,18 @@ public class Ville {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idVille;
-    private String nom;
+    private String nomVille;
     private String codePostal;
-    private long langitude;
-    private long latitude;
-
     private String description;
-
     @OneToMany(mappedBy = "ville", fetch = FetchType.EAGER)
     private List<Restaurant> restaurants;
-
     @OneToMany(mappedBy = "ville" , fetch = FetchType.EAGER)
     private List<Stade> stades;
-
     @OneToMany(mappedBy = "ville" , fetch = FetchType.EAGER)
     private List<Hotel> hotels;
-
     @OneToMany(mappedBy = "ville" , fetch = FetchType.EAGER)
     private List<Monument> monuments;
+    @OneToMany(mappedBy = "ville" , fetch = FetchType.EAGER)
+    private List<Match> matches;
 
 }

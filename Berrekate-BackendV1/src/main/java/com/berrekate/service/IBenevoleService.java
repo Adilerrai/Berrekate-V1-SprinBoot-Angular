@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public interface I_BenevoleService  {
+public interface IBenevoleService  {
     List<BenevoleDTO> getAllBenevole();
     BenevoleDTO getBenevoleById(Long id);
     BenevoleDTO getBenevoleByLangue(String langue);

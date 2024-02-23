@@ -3,19 +3,19 @@ package com.berrekate.service.impl;
 import com.berrekate.berrekate_repository.VisiteurRepository;
 import com.berrekate.dto.VisiteurDTO;
 import com.berrekate.entities.Visiteur;
-import com.berrekate.service.I_VisiteurService;
+import com.berrekate.service.IVisiteurService;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class VisiteurServiceImpl implements I_VisiteurService {
+public class VisiteurServiceImpl implements IVisiteurService {
 
 
-    private VisiteurRepository visiteurRepository;
+    private final VisiteurRepository visiteurRepository;
 
-    private ModelMapper modelMapper;
+    private final ModelMapper modelMapper;
 
     public VisiteurServiceImpl(VisiteurRepository visiteurRepository, ModelMapper modelMapper) {
         this.visiteurRepository = visiteurRepository;

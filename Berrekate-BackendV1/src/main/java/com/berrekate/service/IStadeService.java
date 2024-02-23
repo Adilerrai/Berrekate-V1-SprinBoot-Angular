@@ -7,13 +7,15 @@ import com.berrekate.dto.StadeDTO;
 import java.util.List;
 
 @Service
-public interface I_StadeService {
-   StadeDTO getStadeById(Long id);
+public interface IStadeService {
+   StadeDTO getStadeById(long id);
     StadeDTO getStadeByName(String name);
     StadeDTO addStade(StadeDTO stadeDTO);
     List<StadeDTO> getAllStades();
-    List<StadeDTO> getAllStadesByVille(String ville);
-    boolean deleteStade(Long id);
+
+    StadeDTO getAllStadeByVille(String ville);
+
+    boolean deleteStade(long id);
     StadeDTO updateStade(StadeDTO stadeDTO);
 
 

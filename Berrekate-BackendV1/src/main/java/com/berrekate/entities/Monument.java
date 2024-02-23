@@ -13,9 +13,8 @@ public class Monument {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idMonument;
-    private String nom;
+    private String nomMonument;
     private String description;
-
     @ManyToOne
     private Ville ville;
 }

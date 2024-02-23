@@ -14,11 +14,11 @@ public class Restaurant {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idRestaurant;
-    private String nom;
-    private String addresse;
+    private String nomRestaurant;
+    private String addresseRestaurant;
     private String description;
-    private String tele;
-    private String email;
+    private String teleRestaurant;
+    private String emailRestaurant;
     @ManyToOne
     private Ville ville;
 }

@@ -9,8 +9,9 @@ import java.util.List;
 @Repository
 public interface StadeRepository extends JpaRepository<Stade, Long> {
 
-    List<Stade> getStadesByVille(String ville);
-
-    Stade getStadeByNom(String name);
     boolean deleteByIdStade(Long id);
+    Stade getStadeByNomStade(String nomStade);
+    Stade getStadeByVilleNomVille(String nomVille);
+
+
 }

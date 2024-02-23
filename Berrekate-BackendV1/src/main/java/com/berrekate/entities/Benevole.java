@@ -15,7 +15,12 @@ public class Benevole extends Personne {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idBenevole;
-    private String langue;
+    private String langue1;
+    private String langue2;
+    private String langue3;
     @Enumerated(EnumType.STRING)
     private Sexe sexe;
+    private String cin;
+    @OneToOne
+    private Ville ville;
 }

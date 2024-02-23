@@ -1,6 +1,7 @@
 package com.berrekate.entities;
 
 
+import jakarta.persistence.OneToOne;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -15,6 +16,9 @@ public class Personne {
     private String prenom;
     private String email;
     private String telephone;
-    private Blob image;
+    private String adresse;
+    @OneToOne
+    private Ville ville;
+
 
 }

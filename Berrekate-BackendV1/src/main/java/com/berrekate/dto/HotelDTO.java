@@ -10,12 +10,11 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class HotelDTO{
     private Long idHotel;
-    private String nom;
-    private String address;
-    private String phone;
+    private String nomHotel;
+    private String addressHotel;
+    private String teleHotel;
     private String email;
     private String description;
-    private String latitude;
-    private String longitude;
+    private int startHotel;
     private Ville ville;
 }

@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public interface I_MonumentService {
+public interface IMonumentService {
     MonumentDTO getMonumentById(Long id );
     MonumentDTO createMonument (MonumentDTO monumentDTO);
     MonumentDTO updateMonument (MonumentDTO monumentDTO);

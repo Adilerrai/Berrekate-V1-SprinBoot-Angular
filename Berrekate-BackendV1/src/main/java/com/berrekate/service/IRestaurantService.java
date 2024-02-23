@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public interface I_RestaurantService {
+public interface IRestaurantService {
     RestaurantDTO getRestaurantById(Long id);
     RestaurantDTO getRestaurantByName(String name);
     RestaurantDTO getRestaurantByVille(String ville);

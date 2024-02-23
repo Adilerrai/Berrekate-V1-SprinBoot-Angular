@@ -1,19 +1,17 @@
 package com.berrekate.service.impl;
 
-import com.berrekate.berrekate_repository.BenevoleRepository;
 import com.berrekate.berrekate_repository.MonumentRepository;
 import com.berrekate.dto.MonumentDTO;
 import com.berrekate.entities.Monument;
-import com.berrekate.service.I_MonumentService;
+import com.berrekate.service.IMonumentService;
 import org.modelmapper.ModelMapper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 
 @Service
-public class MonumentServiceImpl implements I_MonumentService {
+public class MonumentServiceImpl implements IMonumentService {
 
 
     private final MonumentRepository monumentRepository;
@@ -35,9 +33,8 @@ public class MonumentServiceImpl implements I_MonumentService {
         List<Monument> monuments = monumentRepository.findAll();
         return monuments.stream()
                 .map(monument -> modelMapper.map(monument, MonumentDTO.class))
-                .collect(java.util.stream.Collectors.toList());
+                .toList();
     }
-
     @Override
     public MonumentDTO getMonumentById(Long id) {
         Monument monument = monumentRepository.getOne(id);
@@ -56,10 +53,9 @@ public class MonumentServiceImpl implements I_MonumentService {
 
        Monument monument = monumentRepository.findById(monumentDTO.getIdMonument()).orElse(null);
         if (monument != null) {
-            monument.setNom(monumentDTO.getNom());
-            monument.setVille(monumentDTO.getVille());
+            monument.setNomMonument(monumentDTO.getNom());
             monument.setDescription(monumentDTO.getDescription());
-            monument = monumentRepository.save(monument);
+            monument.setVille(monumentDTO.getVille());
         }
         return modelMapper.map(monument, MonumentDTO.class);
     }

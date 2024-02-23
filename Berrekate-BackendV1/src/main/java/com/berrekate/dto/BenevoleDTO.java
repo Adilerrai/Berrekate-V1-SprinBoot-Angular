@@ -12,7 +12,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class BenevoleDTO {
     private int idBenevole;
-    private String langue;
+    private String langue1;
+    private String langue2;
+    private String langue3;
     private Sexe sexe;
     private String nom;
     private String prenom;

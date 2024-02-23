@@ -3,17 +3,16 @@ package com.berrekate.service.impl;
 import com.berrekate.berrekate_repository.VilleRepository;
 import com.berrekate.dto.VilleDTO;
 import com.berrekate.entities.Ville;
-import com.berrekate.service.I_VilleService;
+import com.berrekate.service.IVilleService;
 import org.modelmapper.ModelMapper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class VilleServiceImpl implements I_VilleService {
-    private VilleRepository villeRepository;
-    private ModelMapper modelMapper;
+public class VilleServiceImpl implements IVilleService {
+    private final VilleRepository villeRepository;
+    private final ModelMapper modelMapper;
 
     public VilleServiceImpl(VilleRepository villeRepository, ModelMapper modelMapper) {
         this.villeRepository = villeRepository;
@@ -28,7 +27,7 @@ public class VilleServiceImpl implements I_VilleService {
 
     @Override
     public VilleDTO getVilleByName(String name) {
-        Ville ville = villeRepository.getVilleByNom(name);
+        Ville ville = villeRepository.getVilleByNomVille(name);
         return modelMapper.map(ville, VilleDTO.class);
     }
 
@@ -37,13 +36,13 @@ public class VilleServiceImpl implements I_VilleService {
         List<Ville> villes = villeRepository.findAll();
         return villes.stream()
                 .map(ville -> modelMapper.map(ville, VilleDTO.class))
-                .collect(java.util.stream.Collectors.toList());
+                .toList();
     }
 
 
     @Override
     public boolean deleteVille(String name) {
-        return villeRepository.deleteByName(name);
+        return villeRepository.deleteByNomVille(name);
     }
 
     @Override
@@ -57,14 +56,12 @@ public class VilleServiceImpl implements I_VilleService {
     public VilleDTO updateVille(VilleDTO villeDTO) {
         Ville ville = villeRepository.findById(villeDTO.getIdVille()).orElse(null);
         if (ville != null) {
-            ville.setNom(villeDTO.getNom());
+            ville.setNomVille(villeDTO.getNomVille());
             ville.setHotels(villeDTO.getHotels());
             ville.setMonuments(villeDTO.getMonuments());
             ville.setRestaurants(villeDTO.getRestaurants());
             ville.setCodePostal(villeDTO.getCodePostal());
             ville.setStades(villeDTO.getStades());
-            ville.setLangitude(villeDTO.getLangitude());
-            ville.setLatitude(villeDTO.getLatitude());
             ville.setMonuments(villeDTO.getMonuments());
             ville = villeRepository.save(ville);
         }

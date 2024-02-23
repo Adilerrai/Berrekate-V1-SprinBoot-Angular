@@ -2,18 +2,16 @@ package com.berrekate.service.impl;
 
 import com.berrekate.entities.Benevole;
 import com.berrekate.berrekate_repository.BenevoleRepository;
-import com.berrekate.service.I_BenevoleService;
+import com.berrekate.service.IBenevoleService;
 import org.modelmapper.ModelMapper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.berrekate.dto.BenevoleDTO;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 
 @Service
-public class BenevoleServiceImpl implements I_BenevoleService {
+public class BenevoleServiceImpl implements IBenevoleService {
 
     private final BenevoleRepository benevoleRepository;
     private final ModelMapper modelMapper;
@@ -26,7 +24,7 @@ public class BenevoleServiceImpl implements I_BenevoleService {
         List<Benevole> benevoles = benevoleRepository.findAll();
         return  benevoles.stream()
                 .map(benevole -> modelMapper.map(benevole, BenevoleDTO.class))
-                .collect(Collectors.toList());
+                .toList();
     }
 
     @Override
@@ -37,7 +35,7 @@ public class BenevoleServiceImpl implements I_BenevoleService {
 
     @Override
     public BenevoleDTO getBenevoleByLangue(String langue) {
-        Benevole benevole = benevoleRepository.findByLangue(langue);
+        Benevole benevole = benevoleRepository.findByLangue1OrLangue2OrLangue3(langue);
         return modelMapper.map(benevole, BenevoleDTO.class);
     }
 
@@ -52,7 +50,9 @@ public class BenevoleServiceImpl implements I_BenevoleService {
         if (benevole != null) {
             benevole.setNom(benevoleDTO.getNom());
             benevole.setPrenom(benevoleDTO.getPrenom());
-            benevole.setLangue(benevoleDTO.getLangue());
+            benevole.setLangue1(benevoleDTO.getLangue1());
+            benevole.setLangue2(benevoleDTO.getLangue2());
+            benevole.setLangue3(benevoleDTO.getLangue3());
             benevole.setTelephone(benevoleDTO.getTelephone());
             benevole.setEmail(benevoleDTO.getEmail());
 

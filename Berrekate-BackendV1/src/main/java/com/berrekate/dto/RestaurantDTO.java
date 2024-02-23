@@ -1,11 +1,6 @@
 package com.berrekate.dto;
 
-import com.berrekate.entities.Personne;
 import com.berrekate.entities.Ville;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -17,11 +12,11 @@ import lombok.NoArgsConstructor;
 public class RestaurantDTO {
 
     private Long idRestaurant;
-    private String nom ;
-    private String addresse;
+    private String nomRestaurant;
+    private String addresseRestaurant;
     private String description;
-    private String tele;
-    private String email;
+    private String teleRestaurant;
+    private String emailRestaurant;
     private Ville ville;
 
 }

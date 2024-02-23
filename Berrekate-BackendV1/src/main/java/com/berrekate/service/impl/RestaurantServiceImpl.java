@@ -3,16 +3,14 @@ package com.berrekate.service.impl;
 import com.berrekate.berrekate_repository.RestaurantRepository;
 import com.berrekate.dto.RestaurantDTO;
 import com.berrekate.entities.Restaurant;
-import com.berrekate.service.I_RestaurantService;
+import com.berrekate.service.IRestaurantService;
 import org.modelmapper.ModelMapper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
-public class RestaurantServiceImpl implements I_RestaurantService {
+public class RestaurantServiceImpl implements IRestaurantService {
 
     private final ModelMapper modelMapper;
     private final RestaurantRepository restaurantRepository;
@@ -30,7 +28,7 @@ public class RestaurantServiceImpl implements I_RestaurantService {
 
     @Override
     public RestaurantDTO getRestaurantByName(String nom) {
-        Restaurant restaurant = restaurantRepository.getRestaurantByNom(nom);
+        Restaurant restaurant = restaurantRepository.getRestaurantByNomRestaurant(nom);
         return modelMapper.map(restaurant, RestaurantDTO.class);
     }
 
@@ -45,7 +43,7 @@ public class RestaurantServiceImpl implements I_RestaurantService {
         List<Restaurant> restaurants = restaurantRepository.findAll();
         return restaurants.stream()
                 .map(restaurant -> modelMapper.map(restaurant, RestaurantDTO.class))
-                .collect(Collectors.toList());
+                .toList();
     }
 
     @Override
@@ -57,12 +55,12 @@ public class RestaurantServiceImpl implements I_RestaurantService {
     public RestaurantDTO updateRestaurant(RestaurantDTO restaurantDTO) {
         Restaurant restaurant = restaurantRepository.findById(restaurantDTO.getIdRestaurant()).orElse(null);
         if (restaurant != null) {
-            restaurant.setNom(restaurantDTO.getNom());
-            restaurant.setVille(restaurantDTO.getVille());
+            restaurant.setNomRestaurant(restaurantDTO.getNomRestaurant());
+            restaurant.setAddresseRestaurant(restaurantDTO.getAddresseRestaurant());
             restaurant.setDescription(restaurantDTO.getDescription());
-            restaurant.setTele(restaurantDTO.getTele());
-            restaurant.setEmail(restaurantDTO.getEmail());
-            restaurant = restaurantRepository.save(restaurant);
+            restaurant.setTeleRestaurant(restaurantDTO.getTeleRestaurant());
+            restaurant.setEmailRestaurant(restaurantDTO.getEmailRestaurant());
+            restaurant.setVille(restaurantDTO.getVille());
         }
         return modelMapper.map(restaurant, RestaurantDTO.class);
     }
@@ -79,6 +77,6 @@ public class RestaurantServiceImpl implements I_RestaurantService {
         List<Restaurant> restaurants = restaurantRepository.getRestaurantsByVille(ville);
         return restaurants.stream()
                 .map(restaurant -> modelMapper.map(restaurant, RestaurantDTO.class))
-                .collect(Collectors.toList());
+                .toList();
     }
 }

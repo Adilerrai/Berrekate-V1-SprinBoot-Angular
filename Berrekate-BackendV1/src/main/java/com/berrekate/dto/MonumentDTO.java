@@ -13,8 +13,6 @@ public class MonumentDTO   {
     private Long idMonument;
     private String nom;
     private String description;
-    private String latitude;
-    private String longitude;
     private Ville ville;
 
 }

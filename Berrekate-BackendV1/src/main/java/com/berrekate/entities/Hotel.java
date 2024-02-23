@@ -13,12 +13,12 @@ public class Hotel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String name;
-    private String address;
+    private String nomHotel;
+    private String addressHotel;
     private String description;
-    private String telephone;
-    private String email;
-
+    private String teleHotel;
+    private int startHotel;
+    private String emailHotel;
     @ManyToOne
     private Ville ville;
 }

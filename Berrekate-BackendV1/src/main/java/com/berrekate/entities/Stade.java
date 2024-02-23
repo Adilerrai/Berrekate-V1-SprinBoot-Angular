@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Entity
 @Data
 @NoArgsConstructor
@@ -13,12 +15,12 @@ public class Stade {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idStade;
-    private String nom;
-    private String address;
+    private String nomStade;
+    private String addressStade;
     private String description;
-    private String latitude;
-    private String longitude;
-
+    private String capacityStade;
+    @OneToMany
+    private List<Match> matches;
     @ManyToOne
     private Ville ville;
 }

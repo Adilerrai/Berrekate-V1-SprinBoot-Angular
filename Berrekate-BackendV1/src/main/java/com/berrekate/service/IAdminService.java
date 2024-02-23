@@ -4,7 +4,7 @@ import com.berrekate.dto.AdminDTO;
 
 import java.util.List;
 
-public interface I_AdminService {
+public interface IAdminService {
 
     AdminDTO  createAdmin(AdminDTO adminDTO);
     List<AdminDTO> getAllAdmins();

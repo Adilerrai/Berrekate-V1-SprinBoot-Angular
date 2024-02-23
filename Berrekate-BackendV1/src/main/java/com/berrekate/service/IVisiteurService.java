@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public interface I_VisiteurService {
+public interface IVisiteurService {
 
     VisiteurDTO saveVisiteur(VisiteurDTO visiteur);
     VisiteurDTO updateVisiteur(VisiteurDTO visiteur);

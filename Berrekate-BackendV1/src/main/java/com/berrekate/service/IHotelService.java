@@ -8,11 +8,11 @@ import java.util.List;
 
 
 @Service
-public interface I_HotelService {
+public interface IHotelService {
     List<HotelDTO> getAllHotels();
-    HotelDTO getHotelById(int id);
+    HotelDTO getHotelById(long id);
     HotelDTO addHotel(HotelDTO hotel);
-    void updateHotel(HotelDTO hotel, int id);
-    void deleteHotel(int id);
+    void updateHotel(HotelDTO hotel, long id);
+    void deleteHotel(long id);
     List<HotelDTO> getHotelsByVille(String ville);
 }

@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public interface I_VilleService  {
+public interface IVilleService  {
      VilleDTO getVilleById(Long id);
      VilleDTO getVilleByName(String name);
 
